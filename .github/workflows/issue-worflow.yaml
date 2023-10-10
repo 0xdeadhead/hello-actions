@@ -1,0 +1,11 @@
+name: issue-created-workflow
+on:
+        issues:
+                type: [created]
+jobs:
+        get_issue_info:
+                runs-on: ubuntu-latest
+                steps:
+                        - name: get_issue_info
+                          run: echo "${{ toJSON(github.event) }}" | jq .
+                          shell: bash
